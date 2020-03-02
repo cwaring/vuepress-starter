@@ -5,8 +5,8 @@
     "node": true
   },
   "extends": [
-    "plugin:vue/essential",
     "standard",
+    "plugin:vue/essential",
     "plugin:prettier/recommended",
     "prettier/standard"
   ],
