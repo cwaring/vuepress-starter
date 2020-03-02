@@ -8,16 +8,15 @@
     "site:dev": "vuepress dev site",
     "site:build": "vuepress build site",
     "lint": "prettier --write \"**/*.{json,yaml,md}\" && run-p lint:**",
-    "lint:eslint": "eslint site/.vuepress/**/*.{js,vue}",
-    "lint:styles": "stylelint site/.vuepress/**/*.css"
+    "lint:eslint": "eslint site/.vuepress/**/*.{js,vue} --fix",
+    "lint:styles": "stylelint site/.vuepress/**/*.css --fix"
   },
   "keywords": [],
   "author": "Chris Waring <chris@wwaves.co>",
   "license": "MIT",
   "prettier": {
     "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "singleQuote": true
   },
   "devDependencies": {
     "eslint": "^6.8.0",

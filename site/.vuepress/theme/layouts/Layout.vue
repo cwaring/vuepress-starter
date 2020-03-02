@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import Home from "@theme/components/Home.vue";
-import Page from "@theme/components/Page.vue";
-import { resolveSidebarItems } from "../util";
+import Home from '@theme/components/Home.vue'
+import Page from '@theme/components/Page.vue'
+import { resolveSidebarItems } from '../util'
 
 export default {
-  name: "Layout",
+  name: 'Layout',
 
   components: {
     Home,
@@ -29,17 +29,17 @@ export default {
   data() {
     return {
       isSidebarOpen: false
-    };
+    }
   },
 
   computed: {
     shouldShowSidebar() {
-      const { frontmatter } = this.$page;
+      const { frontmatter } = this.$page
       return (
         !frontmatter.home &&
         frontmatter.sidebar !== false &&
         this.sidebarItems.length
-      );
+      )
     },
 
     sidebarItems() {
@@ -48,12 +48,12 @@ export default {
         this.$page.regularPath,
         this.$site,
         this.$localePath
-      );
+      )
     }
   }
-};
+}
 </script>
 
 <style>
-@import "../styles/index.css";
+@import '../styles/index.css';
 </style>
