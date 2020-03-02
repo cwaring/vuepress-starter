@@ -1,0 +1,17 @@
+{
+  "name": "vuepress-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run site:dev",
+    "site:dev": "vuepress dev site",
+    "site:build": "vuepress build site"
+  },
+  "keywords": [],
+  "author": "Chris Waring <chris@wwaves.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.3.1"
+  }
+}
