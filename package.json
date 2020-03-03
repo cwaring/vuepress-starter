@@ -8,8 +8,8 @@
     "site:dev": "vuepress dev site",
     "site:build": "vuepress build site",
     "lint": "prettier --write \"**/*.{json,yaml,md}\" && run-p lint:**",
-    "lint:eslint": "eslint site/.vuepress/**/*.{js,vue} --fix",
-    "lint:styles": "stylelint site/.vuepress/**/*.css --fix"
+    "lint:eslint": "eslint \"**/*.{js,vue}\" --fix",
+    "lint:styles": "stylelint \"**/*.css\" \"site/.vuepress/**/*.css\" --fix"
   },
   "keywords": [],
   "author": "Chris Waring <chris@wwaves.co>",
