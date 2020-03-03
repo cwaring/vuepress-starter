@@ -15,9 +15,11 @@ module.exports = {
     ],
     [
       'vuepress-plugin-sitemap',
-      {
-        hostname
-      }
+      hostname
+        ? {
+            hostname
+          }
+        : false
     ]
   ]
 }
