@@ -1,5 +1,7 @@
 <template>
-  <main>
+  <main
+    class="max-w-screen-xl mx-auto m-8 px-8 py-4 rounded border font-sans leading-loose text-lg text-grey-darkest bg-white"
+  >
     <Home v-if="$page.frontmatter.home" />
 
     <Page v-else :sidebar-items="sidebarItems">
@@ -55,5 +57,7 @@ export default {
 </script>
 
 <style>
-@import '../styles/index.css';
+body {
+  background-color: papayawhip;
+}
 </style>
