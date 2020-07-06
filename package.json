@@ -38,7 +38,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.2",
     "tailwindcss": "^1.2.0",
-    "vuepress": "^1.5.0",
+    "vuepress": "^1.5.2",
     "vuepress-plugin-clean-urls": "^1.1.1",
     "vuepress-plugin-sitemap": "^2.3.1"
   },
