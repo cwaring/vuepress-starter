@@ -6,8 +6,9 @@
   },
   "extends": [
     "standard",
-    "plugin:vue/essential",
+    "plugin:vue/recommended",
     "plugin:prettier/recommended",
+    "prettier/vue",
     "prettier/standard"
   ],
   "globals": {
@@ -18,6 +19,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["vue"],
-  "rules": {}
+  "rules": {
+    "vue/no-v-html": "off"
+  }
 }
