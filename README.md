@@ -20,5 +20,5 @@ npm start
 This will output a production ready version of the website to `./site/.vuepress/dist`
 
 ```bash
-npm run site:build
+npm run build
 ```
