@@ -1,45 +1,29 @@
-const path = require('path')
-const merge = require('lodash/merge')
-
-const defaultOptions = {
-  purgecss: {
-    enabled: true
-  },
-  config: path.join(__dirname, 'tailwind.config.js'),
-  subDir: 'site'
-}
+const tailwindConfig = require('./tailwind.config')
 
 // Theme API.
-module.exports = (options, ctx) => {
-  const { siteConfig, cwd, isProd } = ctx
-  const { config, purgecss, subDir } = merge(defaultOptions, options)
+module.exports = (themeConfig, ctx) => {
+  const { siteConfig, sourceDir, isProd } = ctx
+  const { breakpoints } = tailwindConfig
 
-  const plugins = [require('tailwindcss')(config), require('autoprefixer')]
+  // add breakpoints to themeConfig
+  siteConfig.themeConfig = { ...themeConfig, breakpoints }
 
-  const workingDir = subDir ? `${cwd}/${subDir}` : cwd
-
-  /**
-   * Only run purge css in production.
-   */
-  if (isProd && purgecss.enabled) {
-    const purgecss = require('@fullhuman/postcss-purgecss')({
-      content: [
-        `${workingDir}/.vuepresss/**/*.{vue,js,html,css,styl}`,
-        `${workingDir}/**/*.md`
-      ],
-
-      // Include any special characters you're using in this regular expression
-      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-    })
-    plugins.push(purgecss)
+  const purge = {
+    enabled: isProd,
+    content: [
+      `${sourceDir}/.vuepress/**/*.{vue,js,html,css,styl}`,
+      `${sourceDir}/**/*.md`,
+    ],
   }
+
+  const plugins = [
+    require('tailwindcss')({ ...tailwindConfig, purge }),
+    require('postcss-nested'),
+    require('autoprefixer'),
+  ]
 
   /**
    * Merge in the site's purgecss config
    */
-  siteConfig.postcss = merge(siteConfig.postcss || {}, { plugins })
-
-  return {
-    plugins: []
-  }
+  siteConfig.postcss = { ...(siteConfig.postcss || {}), plugins }
 }

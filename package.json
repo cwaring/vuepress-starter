@@ -19,7 +19,6 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.3.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
