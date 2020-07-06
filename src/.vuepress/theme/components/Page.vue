@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  props: ['sidebarItems']
+  props: ['sidebarItems'],
 }
 </script>

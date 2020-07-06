@@ -26,4 +26,8 @@ module.exports = (themeConfig, ctx) => {
    * Merge in the site's purgecss config
    */
   siteConfig.postcss = { ...(siteConfig.postcss || {}), plugins }
+
+  return {
+    plugins: [],
+  }
 }

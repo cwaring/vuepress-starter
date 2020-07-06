@@ -53,9 +53,9 @@ export default {
     actionLink() {
       return {
         link: this.data.actionLink,
-        text: this.data.actionText
+        text: this.data.actionText,
       }
-    }
-  }
+    },
+  },
 }
 </script>

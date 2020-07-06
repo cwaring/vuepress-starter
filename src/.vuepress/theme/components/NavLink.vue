@@ -29,8 +29,8 @@ export default {
 
   props: {
     item: {
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
@@ -41,7 +41,7 @@ export default {
     exact() {
       if (this.$site.locales) {
         return Object.keys(this.$site.locales).some(
-          rootLink => rootLink === this.link
+          (rootLink) => rootLink === this.link
         )
       }
       return this.link === '/'
@@ -77,13 +77,13 @@ export default {
         return this.item.rel
       }
       return this.isBlankTarget ? 'noopener noreferrer' : ''
-    }
+    },
   },
 
   methods: {
     focusoutAction() {
       this.$emit('focusout')
-    }
-  }
+    },
+  },
 }
 </script>

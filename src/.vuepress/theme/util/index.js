@@ -4,9 +4,7 @@ export const endingSlashRE = /\/$/
 export const outboundRE = /^[a-z]+:/i
 
 export function normalize(path) {
-  return decodeURI(path)
-    .replace(hashRE, '')
-    .replace(extRE, '')
+  return decodeURI(path).replace(hashRE, '').replace(extRE, '')
 }
 
 export function getHash(path) {
@@ -57,7 +55,7 @@ export function resolvePage(pages, rawPath, base) {
   if (isExternal(rawPath)) {
     return {
       type: 'external',
-      path: rawPath
+      path: rawPath,
     }
   }
   if (base) {
@@ -68,7 +66,7 @@ export function resolvePage(pages, rawPath, base) {
     if (normalize(pages[i].regularPath) === path) {
       return Object.assign({}, pages[i], {
         type: 'page',
-        path: ensureExt(pages[i].path)
+        path: ensureExt(pages[i].path),
       })
     }
   }
@@ -142,7 +140,7 @@ export function resolveSidebarItems(page, regularPath, site, localePath) {
     return []
   } else {
     const { base, config } = resolveMatchingConfig(regularPath, sidebarConfig)
-    return config ? config.map(item => resolveItem(item, pages, base)) : []
+    return config ? config.map((item) => resolveItem(item, pages, base)) : []
   }
 }
 
@@ -158,34 +156,34 @@ function resolveHeaders(page) {
       collapsable: false,
       title: page.title,
       path: null,
-      children: headers.map(h => ({
+      children: headers.map((h) => ({
         type: 'auto',
         title: h.title,
         basePath: page.path,
         path: page.path + '#' + h.slug,
-        children: h.children || []
-      }))
-    }
+        children: h.children || [],
+      })),
+    },
   ]
 }
 
 export function groupHeaders(headers) {
   // group h3s under h2
-  headers = headers.map(h => Object.assign({}, h))
+  headers = headers.map((h) => Object.assign({}, h))
   let lastH2
-  headers.forEach(h => {
+  headers.forEach((h) => {
     if (h.level === 2) {
       lastH2 = h
     } else if (lastH2) {
       ;(lastH2.children || (lastH2.children = [])).push(h)
     }
   })
-  return headers.filter(h => h.level === 2)
+  return headers.filter((h) => h.level === 2)
 }
 
 export function resolveNavLinkItem(linkItem) {
   return Object.assign(linkItem, {
-    type: linkItem.items && linkItem.items.length ? 'links' : 'link'
+    type: linkItem.items && linkItem.items.length ? 'links' : 'link',
   })
 }
 
@@ -198,14 +196,14 @@ export function resolveMatchingConfig(regularPath, config) {
   if (Array.isArray(config)) {
     return {
       base: '/',
-      config: config
+      config: config,
     }
   }
   for (const base in config) {
     if (ensureEndingSlash(regularPath).indexOf(encodeURI(base)) === 0) {
       return {
         base,
-        config: config[base]
+        config: config[base],
       }
     }
   }
@@ -221,7 +219,7 @@ function resolveItem(item, pages, base, groupDepth = 1) {
     return resolvePage(pages, item, base)
   } else if (Array.isArray(item)) {
     return Object.assign(resolvePage(pages, item[0], base), {
-      title: item[1]
+      title: item[1],
     })
   } else {
     if (groupDepth > 3) {
@@ -230,7 +228,7 @@ function resolveItem(item, pages, base, groupDepth = 1) {
     const children = item.children || []
     if (children.length === 0 && item.path) {
       return Object.assign(resolvePage(pages, item.path, base), {
-        title: item.title
+        title: item.title,
       })
     }
     return {
@@ -238,10 +236,10 @@ function resolveItem(item, pages, base, groupDepth = 1) {
       path: item.path,
       title: item.title,
       sidebarDepth: item.sidebarDepth,
-      children: children.map(child =>
+      children: children.map((child) =>
         resolveItem(child, pages, base, groupDepth + 1)
       ),
-      collapsable: item.collapsable !== false
+      collapsable: item.collapsable !== false,
     }
   }
 }
