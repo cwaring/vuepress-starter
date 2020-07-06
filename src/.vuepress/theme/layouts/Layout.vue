@@ -25,12 +25,12 @@ export default {
 
   components: {
     Home,
-    Page
+    Page,
   },
 
   data() {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
     }
   },
 
@@ -51,13 +51,13 @@ export default {
         this.$site,
         this.$localePath
       )
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style>
+<style lang="postcss">
 body {
-  background-color: papayawhip;
+  @apply bg-gray-500 antialiased;
 }
 </style>

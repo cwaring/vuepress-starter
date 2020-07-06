@@ -7,9 +7,3 @@
     <slot name="bottom" />
   </main>
 </template>
-
-<script>
-export default {
-  props: ['sidebarItems']
-}
-</script>

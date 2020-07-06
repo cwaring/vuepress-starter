@@ -17,8 +17,8 @@ npm start
 
 ### Static build
 
-This will output a production ready version of the website to `./site/.vuepress/dist`
+This will output a production ready version of the website to `./dist`
 
 ```bash
-npm run site:build
+npm run build
 ```
