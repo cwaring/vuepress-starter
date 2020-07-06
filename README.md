@@ -1,6 +1,6 @@
 # VuePress Starter
 
-A base configuration for VuePress powered website with ESLint, PostCSS, Stylelint, Prettier configuration
+A base configuration for VuePress powered website with ESLint, PostCSS, Stylelint, Tailwind & Prettier configuration
 
 ## Getting started
 
