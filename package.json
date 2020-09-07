@@ -38,7 +38,7 @@
     "stylelint-prettier": "^1.1.2",
     "tailwindcss": "^1.7.6",
     "vuepress": "^1.5.4",
-    "vuepress-plugin-clean-urls": "^1.1.1",
+    "vuepress-plugin-clean-urls": "^1.1.2",
     "vuepress-plugin-sitemap": "^2.3.1"
   },
   "husky": {
